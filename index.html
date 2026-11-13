@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternHub | Internship Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header-->
+    <header class="site-header">
+        <div class="container header-flex">
+            <h1 class="logo">Intern<span>Hub</span></h1>
+            <nav class="main-nav" role="tablist" aria-label="Main Navigation">
+                <button type="button" class="nav-tab active" role="tab" aria-selected="true" data-target="listings">
+                    Browse Internships
+                </button>
+                <button type="button" class="nav-tab" role="tab" aria-selected="false" data-target="eligibility-checker">
+                    Eligibility Checker
+                </button>
+                <button type="button" class="nav-tab" role="tab" aria-selected="false" data-target="apply-section">
+                    Student Application
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!--Hero Section-->
+        <section class="hero">
+            <h2>Find and Secure Your Next Tech Internship</h2>
+            <p>Filter verified listings, check your semester &amp; skill eligibility instantly, and apply with ease.</p>
+        </section>
+
+        <!--Browse Internships-->
+        <section id="listings" class="card section-block tab-panel active" role="tabpanel">
+            <h3>Explore Available Internships</h3>
+            <p>Filter open roles by keyword, required skill, or stipend type.</p>
+            <div class="filter-controls">
+                <div class="form-group">
+                    <label for="search-input">Search Title, Company, or Skill:</label>
+                    <input type="text" id="search-input" placeholder="e.g., Cloud, Frontend, Python...">
+                </div>
+                <div class="form-group">
+                    <label for="filter-type">Compensation Type:</label>
+                    <select id="filter-type">
+                        <option value="all">All Types</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                    </select>
+                </div>
+            </div>
+            <!--Dynamic Internship Cards Grid-->
+            <div id="internship-grid" class="grid-container"></div>
+            <p id="no-results" class="hidden error-msg">No internships match your criteria.</p>
+        </section>
+
+        <!--Interactive Eligibility Checker-->
+        <section id="eligibility-checker" class="card section-block tab-panel hidden" role="tabpanel">
+            <h3>Instant Eligibility Checker</h3>
+            <p>Select an internship and test if you meet the semester and skill prerequisites before applying.</p>
+            <form id="eligibility-form">
+                <div class="form-group">
+                    <label for="select-internship">Choose Internship:</label>
+                    <select id="select-internship" required>
+                        <option value="">-- Select an Internship --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="student-semester">Your Current Semester (1–8):</label>
+                    <input type="number" id="student-semester" min="1" max="8" required placeholder="e.g., 5">
+                </div>
+                <div class="form-group">
+                    <label for="student-skill">Your Primary Skill:</label>
+                    <input type="text" id="student-skill" required placeholder="e.g., Python, React, Docker">
+                </div>
+                <button type="submit" class="btn">Check Eligibility</button>
+            </form>
+            <div id="eligibility-result" class="result-box hidden" aria-live="polite"></div>
+        </section>
+
+        <!--Student Application Portal-->
+        <section id="apply-section" class="card section-block tab-panel hidden" role="tabpanel">
+            <h3>Student Application Portal</h3>
+            <p>Submit your profile and CV directly to the hiring organisation.</p>
+            <form id="application-form">
+                <div class="form-group">
+                    <label for="applicant-name">Full Name:</label>
+                    <input type="text" id="applicant-name" required placeholder="Ali Jafari">
+                </div>
+                <div class="form-group">
+                    <label for="applicant-email">University Email:</label>
+                    <input type="email" id="applicant-email" required placeholder="student@university.edu">
+                </div>
+                <div class="form-group">
+                    <label for="applicant-position">Applying For:</label>
+                    <select id="applicant-position" required>
+                        <option value="">-- Select Position --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="applicant-resume">Upload CV (PDF/DOCX):</label>
+                    <input type="file" id="applicant-resume" accept=".pdf,.doc,.docx" required>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+            <div id="form-feedback" class="hidden" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 InternHub Platform.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
